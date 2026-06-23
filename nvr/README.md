@@ -1,74 +1,27 @@
-# 📹 NVR Tapo - Sistema di Registrazione Locale
+# 📹 WAN Security Server - NVR Personale (Tapo Edition)
 
-Registrazione video da telecamere Tapo senza server Cloud. Salva tutto localmente sulla tua box.
+Benvenuti nel mio progetto **WAN Security Server**! Questo sistema è stato ottimizzato specificamente per telecamere **TP-Link Tapo**, permettendo una gestione professionale dei flussi video senza dipendere dai servizi cloud a pagamento. 
 
-## 📁 Struttura
+Questo progetto è il frutto di circa **2 settimane di lavoro** intenso per creare un sistema di videosorveglianza robusto, flessibile e completamente controllabile a distanza.
 
-```
-NVR/
-├── recorder.py       → Script principale di registrazione
-├── config.json       → Configurazione camere (da compilare)
-├── requirements.txt  → Dipendenze Python
-├── storage/          → Video registrati
-└── logs/             → Log di sistema
-```
+## 🚀 Il Progetto
+Ho recuperato un **vecchio PC (Mac)** e l'ho trasformato in un server di registrazione dedicato. Il computer funge da "cervello" che riceve i flussi video dalle telecamere Tapo e li salva localmente sulla box.
 
-## 🚀 Setup
-
-1. **Installa dipendenze:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. **Configura le camere in `config.json`:**
-   - Inserisci IP della Tapo
-   - Username e password RTSP
-   - Imposta `"enabled": true`
-
-3. **Avvia la registrazione:**
-   ```bash
-   python recorder.py
-   ```
-
-## ⚙️ Configurazione (config.json)
-
-```json
-{
-  "cameras": [
-    {
-      "name": "Camera 1",
-      "ip": "192.168.1.100",
-      "username": "tapo",
-      "password": "tapo",
-      "enabled": true
-    }
-  ],
-  "storage": {
-    "path": "./storage",
-    "retention_days": 7
-  }
-}
-```
-
-## 💾 Storage
-
-I video vengono salvati in:
-```
-storage/Camera_1/Camera_1_YYYYMMDD_HHMMSS.mp4
-storage/Camera_2/Camera_2_YYYYMMDD_HHMMSS.mp4
-```
-
-## 📊 Log
-
-I log vengono salvati in:
-```
-logs/nvr_YYYYMMDD.log
-```
-
-## ⏹️ Arresta
-
-Premi `Ctrl+C` per fermare tutte le registrazioni.
+### Caratteristiche principali:
+- **Controllo Totale da iPhone**: Monitoraggio dello stato, avvio/blocco registrazioni e visualizzazione video direttamente dallo smartphone.
+- **Accesso sicuro tramite Tailscale**: Utilizzo di Tailscale per creare una rete privata sicura e protetta.
+- **Configurazione WAN**: Accesso remoto globale tramite portale dedicato per gestire il sistema da qualsiasi posto.
+- **Smart Rotation & Watchdog**: Gestione automatica dello spazio su disco e sistema "cane da guardia" per garantire la stabilità 24/7.
 
 ---
 
-**Costo**: €0 al mese 🎉
+## 📁 Struttura del Software
+- `recorder.py`: Lo script principale che gestisce la connessione RTSP e il salvataggio dei flussi.
+- `watchdog.py`: Monitora il processo principale e lo riavvia in caso di arresto improvviso.
+- `rotator.py`: Gestisce la pulizia intelligente del disco (cancellazione file vecchi).
+- `config.json`: File di configurazione centrale (IP, Username, Password).
+
+## 🛠️ Setup Rapido
+
+1. **Installa le dipendenze:**
+   
