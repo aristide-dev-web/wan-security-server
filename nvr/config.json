@@ -1,0 +1,21 @@
+{
+  "cameras": [
+    {
+      "name": "Camera 1",
+      "ip": "YOUR_IP_OR_DDNS",
+      "port": "your portal",
+      "username": "YOUR_USERNAME",
+      "password": "YOUR_PASSWORD",
+      "enabled": true
+    }
+  ],
+  "storage": {
+    "path": "./storage",
+    "retention_days": 7,
+    "max_file_size_mb": 2000
+  },
+  "logging": {
+    "path": "./logs",
+    "level": "INFO"
+  }
+}
